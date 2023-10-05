@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokemon Search</title>
+</head>
+<body>
+    <h1>Поиск покемона</h1>
+    <form method="POST" action="{{ url_for('search') }}">
+        <label for="pokemon_search">Введите имя покемона:</label>
+        <input type="text" name="pokemon_name" id="pokemon_search">
+        <input type="submit" value="Поиск">
+    </form>
+    <h2>Список покемонов</h2>
+    <ul>
+        {% for pokemon in pokemon_list %}
+            <li><a href="{{ url_for('search', pokemon_name=pokemon) }}">{{ pokemon }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
